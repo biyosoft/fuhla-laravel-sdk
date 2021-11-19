@@ -1,0 +1,21 @@
+{
+    "name": "biyosoft/fuhla-laravel-sdk",
+    "description": "This is a laravel Package for Fuhla System Integration",
+    "type": "laravel",
+    "require": {
+        "guzzlehttp/guzzle": "7.4.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Biyosoft\\FuhlaLaravelSdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Haider Ali",
+            "email": "haiderrana99@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
