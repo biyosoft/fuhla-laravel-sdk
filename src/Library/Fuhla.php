@@ -45,13 +45,13 @@ class Fuhla
         $campaign_id = Cookie::get('fuhla_campaign_id');
         $url = $URL . "revamp-api/api/Fuhla/fuhla_callback?name=$name&email=$email&invoice_no=$invoice_no&receipt_no=$receipt_no&extra1=$extra1&extra2=$extra2&token=QCYLNgRX9eCLPGIUyjnHSOhrqqoya8bOHTCNXRSSi5ktCWCNQ93mSp9bT4MG8dg0b3VURnb&user_token=$user_token&ref_id=$ref_id&reward_id=$reward_id&campaign_token=$campaign_id&action=$action&amount=$amount&unique_id=$unique_id";
         try {
-            $response = Http::accept('text/plain')->withOptions([
+           $response = Http::withOptions([
                 'verify' => false,
+                'headers' => [
+                    'Accept'     => 'application/json',
+                ]
             ])->get($url);
-            $res =   $response->body();
-            $res = utf8_decode($res);
-            $res = str_replace('?', '', $res);
-            $res = json_decode($res, true);
+            $res =   $response->json();
             return $res;
         } catch (\Throwable $th) {
             return $th;
